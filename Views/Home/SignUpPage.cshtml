@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Time Slot Selection";
+}
+@{
+}
+@model IEnumerable<SignUpTime>
+@*This is where the visior selects the time slot*@
+
+<h3>Sign Up For a Time Slot, then enter in your information</h3>
+
+@foreach (var x in Model)
+{
+    <button>  @Html.ActionLink($"{x.Day} {x.Time}", "SignUpForm", "Home", new { date = x.Day, time = x.Time }) </button>
+
+    <br />
+    <br />
+}

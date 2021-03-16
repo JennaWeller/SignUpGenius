@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Sign Up Form";
+}
+
+@model SignUpItem
+@*this is the actual application that will be filled out by the visitor*@
+
+<p> Fill in your information below for an appointment on @ViewBag.date at @ViewBag.time</p>
+
+<form asp-action="SignUpForm" method="post">
+
+    <label asp-for="NameOfGroup"> Name of Group</label>
+    <input asp-for="NameOfGroup" />
+    <br />
+    <label asp-for="SizeOfGroup"> Size of Group</label>
+    <input asp-for="SizeOfGroup" />
+    <br />
+    <label asp-for="Email"> Email Address</label>
+    <input asp-for="Email" />
+    <label asp-for="Phone"> Phone Number (Optional) </label>
+    <input asp-for="Phone" />
+    <br />
+    <input asp-for="time" type="hidden" value=@ViewBag.time />
+    <input asp-for="date" type="hidden" value=@ViewBag.date />
+
+    @*This button signs the visior up with their info*@
+    <button type="submit"> Sign up stuff</button>
+
+    <div asp-validation-summary="All"></div>
+</form>
